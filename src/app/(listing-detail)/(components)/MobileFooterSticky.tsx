@@ -15,9 +15,9 @@ const MobileFooterSticky = () => {
       <div className="container flex items-center justify-between">
         <div className="">
           <span className="block text-xl font-semibold">
-            $311
+            ₹2,500
             <span className="ml-1 text-sm font-normal text-neutral-500 dark:text-neutral-400">
-              /night
+              /day
             </span>
           </span>
           <ModalSelectDate

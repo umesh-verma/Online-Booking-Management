@@ -27,7 +27,7 @@ export default function GallerySlider({
   imageClass = "",
   uniqueID = "uniqueID",
   galleryClass = "rounded-xl",
-  href = "/listing-stay-detail",
+  href = "/listing-car-detail",
   navigation = true,
 }: GallerySliderProps) {
   const [loaded, setLoaded] = useState(false);
@@ -85,7 +85,10 @@ export default function GallerySlider({
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="absolute inset-0"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                }}
               >
                 <Image
                   src={currentImage || ""}
@@ -131,9 +134,8 @@ export default function GallerySlider({
           <div className="flex items-center justify-center absolute bottom-2 left-1/2 transform -translate-x-1/2 space-x-1.5">
             {images.map((_, i) => (
               <button
-                className={`w-1.5 h-1.5 rounded-full ${
-                  i === index ? "bg-white" : "bg-white/60 "
-                }`}
+                className={`w-1.5 h-1.5 rounded-full ${i === index ? "bg-white" : "bg-white/60 "
+                  }`}
                 onClick={() => changePhotoId(i)}
                 key={i}
               />

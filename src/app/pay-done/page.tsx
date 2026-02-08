@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import ButtonPrimary from "@/shared/ButtonPrimary";
 import Image from "next/image";
 
-export interface PayPageProps {}
+export interface PayPageProps { }
 
 const PayPage: FC<PayPageProps> = () => {
   const renderContent = () => {
@@ -32,14 +32,14 @@ const PayPage: FC<PayPageProps> = () => {
             <div className="pt-5  sm:pb-5 sm:px-5 space-y-3">
               <div>
                 <span className="text-sm text-neutral-500 dark:text-neutral-400 line-clamp-1">
-                  Hotel room in Tokyo, Jappan
+                  Car rental in Mumbai, India
                 </span>
                 <span className="text-base sm:text-lg font-medium mt-1 block">
-                  The Lounge & Bar
+                  BMW 3 Series Sedan
                 </span>
               </div>
               <span className="block  text-sm text-neutral-500 dark:text-neutral-400">
-                2 beds · 2 baths
+                4 seats · Auto
               </span>
               <div className="w-10 border-b border-neutral-200  dark:border-neutral-700"></div>
               <StartRating />
@@ -112,7 +112,7 @@ const PayPage: FC<PayPageProps> = () => {
             <div className="flex text-neutral-6000 dark:text-neutral-300">
               <span className="flex-1">Total</span>
               <span className="flex-1 font-medium text-neutral-900 dark:text-neutral-100">
-                $199
+                ₹7,500
               </span>
             </div>
             <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
@@ -124,7 +124,7 @@ const PayPage: FC<PayPageProps> = () => {
           </div>
         </div>
         <div>
-          <ButtonPrimary href="/">Explore more stays</ButtonPrimary>
+          <ButtonPrimary href="/">Explore more cars</ButtonPrimary>
         </div>
       </div>
     );

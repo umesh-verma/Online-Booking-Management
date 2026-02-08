@@ -82,7 +82,7 @@ export default function SharedModal({
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="absolute"
+                style={{ position: "absolute" }}
               >
                 <Image
                   src={currentImage?.url || ""}
@@ -176,11 +176,16 @@ export default function SharedModal({
             <div className="fixed inset-x-0 bottom-0 z-40 overflow-hidden bg-gradient-to-b from-black/0 to-black/60">
               <motion.div
                 initial={false}
-                className="mx-auto mt-6 mb-6 flex aspect-[3/2] h-14"
+                style={{
+                  display: "flex",
+                  aspectRatio: "3 / 2",
+                  height: "3.5rem",
+                  margin: "1.5rem auto",
+                }}
               >
                 <AnimatePresence initial={false}>
                   {filteredImages.map(({ id, url }) => (
-                    <motion.button
+                    <motion.div
                       initial={{
                         width: "0%",
                         x: `${Math.max((index - 1) * -100, 15 * -100)}%`,
@@ -191,28 +196,34 @@ export default function SharedModal({
                         x: `${Math.max(index * -100, 15 * -100)}%`,
                       }}
                       exit={{ width: "0%" }}
-                      onClick={() => changePhotoId(id)}
                       key={id}
-                      className={`${
-                        id === index
-                          ? "z-20 rounded-md shadow shadow-black/50"
-                          : "z-10"
-                      } ${id === 0 ? "rounded-l-md" : ""} ${
-                        id === images.length - 1 ? "rounded-r-md" : ""
-                      } relative inline-block w-full shrink-0 transform-gpu overflow-hidden focus:outline-none`}
+                      style={{
+                        position: "relative",
+                        display: "inline-block",
+                        width: "100%",
+                        flexShrink: 0,
+                        overflow: "hidden",
+                        zIndex: id === index ? 20 : 10,
+                        borderRadius: id === index ? "0.375rem" : (id === 0 ? "0.375rem 0 0 0.375rem" : (id === images.length - 1 ? "0 0.375rem 0.375rem 0" : "0")),
+                        boxShadow: id === index ? "0 1px 3px 0 rgb(0 0 0 / 0.5)" : "none",
+                      }}
                     >
-                      <Image
-                        alt="small photos on the bottom"
-                        width={180}
-                        height={120}
-                        className={`${
-                          id === index
+                      <button
+                        onClick={() => changePhotoId(id)}
+                        className="w-full h-full focus:outline-none"
+                      >
+                        <Image
+                          alt="small photos on the bottom"
+                          width={180}
+                          height={120}
+                          className={`${id === index
                             ? "brightness-110 hover:brightness-110"
                             : "brightness-50 contrast-125 hover:brightness-75"
-                        } h-full transform object-cover transition`}
-                        src={url || ""}
-                      />
-                    </motion.button>
+                            } h-full transform object-cover transition`}
+                          src={url || ""}
+                        />
+                      </button>
+                    </motion.div>
                   ))}
                 </AnimatePresence>
               </motion.div>

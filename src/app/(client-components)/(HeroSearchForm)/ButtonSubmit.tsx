@@ -6,7 +6,7 @@ interface Props {
   href?: PathName;
 }
 
-const ButtonSubmit: FC<Props> = ({ href = "/listing-stay-map" }) => {
+const ButtonSubmit: FC<Props> = ({ href = "/listing-car-map" }) => {
   return (
     <Link
       href={href}

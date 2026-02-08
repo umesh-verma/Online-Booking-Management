@@ -153,7 +153,13 @@ const SectionClientSay: FC<SectionClientSayProps> = ({
                   initial="enter"
                   animate="center"
                   // exit="exit"
-                  className="inline-flex flex-col items-center text-center whitespace-normal"
+                  style={{
+                    display: "inline-flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    textAlign: "center",
+                    whiteSpace: "normal",
+                  }}
                 >
                   <>
                     <span className="block text-2xl">
@@ -173,9 +179,8 @@ const SectionClientSay: FC<SectionClientSayProps> = ({
               <div className="mt-10 flex items-center justify-center space-x-2">
                 {data.map((item, i) => (
                   <button
-                    className={`w-2 h-2 rounded-full ${
-                      i === index ? "bg-black/70" : "bg-black/10 "
-                    }`}
+                    className={`w-2 h-2 rounded-full ${i === index ? "bg-black/70" : "bg-black/10 "
+                      }`}
                     onClick={() => changeItemId(i)}
                     key={i}
                   />

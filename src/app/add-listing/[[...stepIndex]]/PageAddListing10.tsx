@@ -1,12 +1,12 @@
-import StayCard from "@/components/StayCard";
-import { DEMO_STAY_LISTINGS } from "@/data/listings";
+import CarCard from "@/components/CarCard";
+import { DEMO_CAR_LISTINGS } from "@/data/listings";
 import React, { FC } from "react";
 import ButtonPrimary from "@/shared/ButtonPrimary";
 import ButtonSecondary from "@/shared/ButtonSecondary";
 import { EyeIcon, PencilSquareIcon } from "@heroicons/react/24/outline";
 import { Route } from "@/routers/types";
 
-export interface PageAddListing10Props {}
+export interface PageAddListing10Props { }
 
 const PageAddListing10: FC<PageAddListing10Props> = () => {
   return (
@@ -21,11 +21,11 @@ const PageAddListing10: FC<PageAddListing10Props> = () => {
       <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
       {/* FORM */}
       <div>
-        <h3 className="text-lg font-semibold">This is your listing</h3>
+        <h3 className="text-lg font-semibold">This is your car listing</h3>
         <div className="max-w-xs">
-          <StayCard
+          <CarCard
             className="mt-8"
-            data={{ ...DEMO_STAY_LISTINGS[0], reviewStart: 0 }}
+            data={{ ...DEMO_CAR_LISTINGS[0], reviewStart: 0 }}
           />
         </div>
         <div className="flex items-center space-x-5 mt-8">

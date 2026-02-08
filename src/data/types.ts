@@ -18,7 +18,7 @@ export interface TaxonomyType {
   desc?: string;
   color?: TwMainColor | string;
   taxonomy: "category" | "tag";
-  listingType?: "stay" | "experiences" | "car";
+  listingType?: "car";
 }
 
 export interface AuthorType {
@@ -61,61 +61,7 @@ export type TwMainColor =
   | "purple"
   | "gray";
 
-//
-export interface StayDataType {
-  id: string | number;
-  author: AuthorType;
-  date: string;
-  href: Route<string>;
-  title: string;
-  featuredImage: StaticImageData | string;
-  commentCount: number;
-  viewCount: number;
-  address: string;
-  reviewStart: number;
-  reviewCount: number;
-  like: boolean;
-  galleryImgs: (StaticImageData | string)[];
-  price: string;
-  listingCategory: TaxonomyType;
-  maxGuests: number;
-  bedrooms: number;
-  bathrooms: number;
-  saleOff?: string | null;
-  isAds: boolean | null;
-  map: {
-    lat: number;
-    lng: number;
-  };
-}
-
-//
-export interface ExperiencesDataType {
-  id: string | number;
-  author: AuthorType;
-  date: string;
-  href: Route<string>;
-  title: string;
-  featuredImage: StaticImageData | string;
-  commentCount: number;
-  viewCount: number;
-  address: string;
-  reviewStart: number;
-  reviewCount: number;
-  like: boolean;
-  galleryImgs: (StaticImageData | string)[];
-  price: string;
-  listingCategory: TaxonomyType;
-  maxGuests: number;
-  saleOff?: string | null;
-  isAds: boolean | null;
-  map: {
-    lat: number;
-    lng: number;
-  };
-}
-
-//
+// Primary data type for CG Rental platform
 export interface CarDataType {
   id: string | number;
   author: AuthorType;

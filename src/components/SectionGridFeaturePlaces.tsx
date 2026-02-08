@@ -1,17 +1,15 @@
 import React, { FC, ReactNode } from "react";
-import { DEMO_STAY_LISTINGS } from "@/data/listings";
-import { StayDataType } from "@/data/types";
+import { DEMO_CAR_LISTINGS } from "@/data/listings";
+import { CarDataType } from "@/data/types";
 import ButtonPrimary from "@/shared/ButtonPrimary";
 import HeaderFilter from "./HeaderFilter";
-import StayCard from "./StayCard";
-import StayCard2 from "./StayCard2";
+import CarCard from "./CarCard";
 
-// OTHER DEMO WILL PASS PROPS
-const DEMO_DATA: StayDataType[] = DEMO_STAY_LISTINGS.filter((_, i) => i < 8);
+// Car demo data
+const DEMO_DATA: CarDataType[] = DEMO_CAR_LISTINGS.filter((_, i) => i < 8);
 
-//
 export interface SectionGridFeaturePlacesProps {
-  stayListings?: StayDataType[];
+  carListings?: CarDataType[];
   gridClass?: string;
   heading?: ReactNode;
   subHeading?: ReactNode;
@@ -21,35 +19,22 @@ export interface SectionGridFeaturePlacesProps {
 }
 
 const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
-  stayListings = DEMO_DATA,
+  carListings = DEMO_DATA,
   gridClass = "",
-  heading = "Featured places to stay",
-  subHeading = "Popular places to stay that Chisfis recommends for you",
+  heading = "Featured cars for rent",
+  subHeading = "Popular rental cars that CG Rental recommends for you",
   headingIsCenter,
-  tabs = ["New York", "Tokyo", "Paris", "London"],
+  tabs = ["All", "SUV", "Sedan", "Sports"],
   cardType = "card2",
 }) => {
-  const renderCard = (stay: StayDataType) => {
-    let CardName = StayCard;
-    switch (cardType) {
-      case "card1":
-        CardName = StayCard;
-        break;
-      case "card2":
-        CardName = StayCard2;
-        break;
-
-      default:
-        CardName = StayCard;
-    }
-
-    return <CardName key={stay.id} data={stay} />;
+  const renderCard = (car: CarDataType) => {
+    return <CarCard key={car.id} data={car} />;
   };
 
   return (
     <div className="nc-SectionGridFeaturePlaces relative">
       <HeaderFilter
-        tabActive={"New York"}
+        tabActive={"All"}
         subHeading={subHeading}
         tabs={tabs}
         heading={heading}
@@ -57,7 +42,7 @@ const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
       <div
         className={`grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ${gridClass}`}
       >
-        {stayListings.map((stay) => renderCard(stay))}
+        {carListings.map((car) => renderCard(car))}
       </div>
       <div className="flex mt-16 justify-center items-center">
         <ButtonPrimary loading>Show me more</ButtonPrimary>

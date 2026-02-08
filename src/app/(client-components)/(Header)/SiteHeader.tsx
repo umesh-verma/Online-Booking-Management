@@ -27,10 +27,7 @@ let OPTIONS = {
 };
 let OBSERVER: IntersectionObserver | null = null;
 const PAGES_HIDE_HEADER_BORDER: PathName[] = [
-  "/home-3",
   "/listing-car-detail",
-  "/listing-experiences-detail",
-  "/listing-stay-detail",
 ];
 
 const SiteHeader = () => {
@@ -39,9 +36,9 @@ const SiteHeader = () => {
   let [headers] = useState<SiteHeaders[]>(["Header 1", "Header 2", "Header 3"]);
 
   let [homePages] = useState<HomePageItem[]>([
-    { name: "Travel", slug: "/" },
-    { name: "Real Estate", slug: "/home-2" },
-    { name: "Booking", slug: "/home-3" },
+    { name: "Home", slug: "/" },
+    { name: "Cars", slug: "/listing-car" },
+    { name: "Map View", slug: "/listing-car-map" },
   ]);
   const [headerSelected, setHeaderSelected] = useState<SiteHeaders>("Header 2");
 
@@ -84,11 +81,10 @@ const SiteHeader = () => {
             return (
               <div
                 key={header}
-                className={`py-1.5 px-3.5 flex items-center rounded-full font-medium text-xs cursor-pointer select-none ${
-                  headerSelected === header
-                    ? "bg-black text-white shadow-black/10 shadow-lg"
-                    : "border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500"
-                }`}
+                className={`py-1.5 px-3.5 flex items-center rounded-full font-medium text-xs cursor-pointer select-none ${headerSelected === header
+                  ? "bg-black text-white shadow-black/10 shadow-lg"
+                  : "border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500"
+                  }`}
                 onClick={() => setHeaderSelected(header)}
               >
                 {header}
@@ -110,11 +106,10 @@ const SiteHeader = () => {
               <Link
                 key={home.slug}
                 href={home.slug}
-                className={`py-1.5 px-3.5 flex items-center rounded-full font-medium text-xs cursor-pointer select-none ${
-                  pathname === home.slug
-                    ? "bg-black text-white shadow-black/10 shadow-lg"
-                    : "border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500"
-                }`}
+                className={`py-1.5 px-3.5 flex items-center rounded-full font-medium text-xs cursor-pointer select-none ${pathname === home.slug
+                  ? "bg-black text-white shadow-black/10 shadow-lg"
+                  : "border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500"
+                  }`}
               >
                 {home.name}
               </Link>
@@ -134,9 +129,8 @@ const SiteHeader = () => {
             {({ open }) => (
               <>
                 <Popover.Button
-                  className={`p-2.5 bg-white hover:bg-neutral-100 dark:bg-primary-6000 dark:hover:bg-primary-700 rounded-xl shadow-xl border border-neutral-200 dark:border-primary-6000 z-10 focus:outline-none ${
-                    open ? " focus:ring-2 ring-primary-500" : ""
-                  }`}
+                  className={`p-2.5 bg-white hover:bg-neutral-100 dark:bg-primary-6000 dark:hover:bg-primary-700 rounded-xl shadow-xl border border-neutral-200 dark:border-primary-6000 z-10 focus:outline-none ${open ? " focus:ring-2 ring-primary-500" : ""
+                    }`}
                 >
                   <CogIcon className="w-8 h-8" />
                 </Popover.Button>
@@ -157,7 +151,7 @@ const SiteHeader = () => {
                         {renderRadioHeaders()}
                         {renderRadioHomePages()}
                       </div>
-                    
+
                     </div>
                   </Popover.Panel>
                 </Transition>

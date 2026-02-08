@@ -12,12 +12,12 @@ import Slider from "rc-slider";
 
 // DEMO DATA
 const typeOfCar = [
-  { name: "Small", description: "$68" },
-  { name: "Medium", description: "$128" },
-  { name: "Large", description: "$268" },
-  { name: "SUV", description: "$268" },
-  { name: "Van", description: "$268" },
-  { name: "Luxury", description: "$268" },
+  { name: "Small", description: "₹2,500" },
+  { name: "Medium", description: "₹4,000" },
+  { name: "Large", description: "₹6,000" },
+  { name: "SUV", description: "₹7,500" },
+  { name: "Van", description: "₹8,000" },
+  { name: "Luxury", description: "₹15,000" },
 ];
 
 const carSpecifications = [
@@ -79,9 +79,8 @@ const TabFilters = () => {
         {({ open, close }) => (
           <>
             <Popover.Button
-              className={`flex items-center justify-center px-4 py-2 text-sm rounded-full border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-6000 focus:outline-none ${
-                open ? "!border-primary-500 " : ""
-              }`}
+              className={`flex items-center justify-center px-4 py-2 text-sm rounded-full border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-6000 focus:outline-none ${open ? "!border-primary-500 " : ""
+                }`}
             >
               <span>Car type</span>
               <i className="las la-angle-down ml-2"></i>
@@ -137,9 +136,9 @@ const TabFilters = () => {
               className={`flex items-center justify-center px-4 py-2 text-sm rounded-full border border-primary-500 bg-primary-50 text-primary-700 focus:outline-none `}
             >
               <span>
-                {`$${convertNumbThousand(
+                {`₹${convertNumbThousand(
                   rangePrices[0]
-                )} - $${convertNumbThousand(rangePrices[1])}`}{" "}
+                )} - ₹${convertNumbThousand(rangePrices[1])}`}{" "}
               </span>
               {renderXClear()}
             </Popover.Button>
@@ -179,7 +178,7 @@ const TabFilters = () => {
                         <div className="mt-1 relative rounded-md">
                           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <span className="text-neutral-500 sm:text-sm">
-                              $
+                              ₹
                             </span>
                           </div>
                           <input
@@ -202,7 +201,7 @@ const TabFilters = () => {
                         <div className="mt-1 relative rounded-md">
                           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <span className="text-neutral-500 sm:text-sm">
-                              $
+                              ₹
                             </span>
                           </div>
                           <input
@@ -240,11 +239,10 @@ const TabFilters = () => {
   const renderTabOnSale = () => {
     return (
       <div
-        className={`flex items-center justify-center px-4 py-2 text-sm rounded-full border focus:outline-none cursor-pointer transition-all ${
-          isOnSale
+        className={`flex items-center justify-center px-4 py-2 text-sm rounded-full border focus:outline-none cursor-pointer transition-all ${isOnSale
             ? "border-primary-500 bg-primary-50 text-primary-700"
             : "border-neutral-300 dark:border-neutral-700"
-        }`}
+          }`}
         onClick={() => setIsOnSale(!isOnSale)}
       >
         <span>On sale</span>
@@ -259,9 +257,8 @@ const TabFilters = () => {
         {({ open, close }) => (
           <>
             <Popover.Button
-              className={`flex items-center justify-center px-4 py-2 text-sm rounded-full border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-6000 focus:outline-none ${
-                open ? "!border-primary-500 " : ""
-              }`}
+              className={`flex items-center justify-center px-4 py-2 text-sm rounded-full border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-6000 focus:outline-none ${open ? "!border-primary-500 " : ""
+                }`}
             >
               <span>Guests & Bags</span>
               <i className="las la-angle-down ml-2"></i>
@@ -449,7 +446,7 @@ const TabFilters = () => {
                                 <div className="mt-1 relative rounded-md">
                                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <span className="text-neutral-500 sm:text-sm">
-                                      $
+                                      ₹
                                     </span>
                                   </div>
                                   <input
@@ -472,7 +469,7 @@ const TabFilters = () => {
                                 <div className="mt-1 relative rounded-md">
                                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <span className="text-neutral-500 sm:text-sm">
-                                      $
+                                      ₹
                                     </span>
                                   </div>
                                   <input

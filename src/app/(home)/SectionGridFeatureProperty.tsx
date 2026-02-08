@@ -1,15 +1,15 @@
 import React, { FC, ReactNode } from "react";
-import { DEMO_STAY_LISTINGS } from "@/data/listings";
-import { StayDataType } from "@/data/types";
+import { DEMO_CAR_LISTINGS } from "@/data/listings";
+import { CarDataType } from "@/data/types";
 import ButtonPrimary from "@/shared/ButtonPrimary";
-import PropertyCardH from "@/components/PropertyCardH";
+import CarCardH from "@/components/CarCardH";
 import HeaderFilter from "@/components/HeaderFilter";
 
-// OTHER DEMO WILL PASS PROPS
-const DEMO_DATA: StayDataType[] = DEMO_STAY_LISTINGS.filter((_, i) => i < 8);
-//
+// Car demo data
+const DEMO_DATA: CarDataType[] = DEMO_CAR_LISTINGS.filter((_, i) => i < 8);
+
 export interface SectionGridFeaturePropertyProps {
-  stayListings?: StayDataType[];
+  carListings?: CarDataType[];
   gridClass?: string;
   heading?: ReactNode;
   subHeading?: ReactNode;
@@ -18,21 +18,21 @@ export interface SectionGridFeaturePropertyProps {
 }
 
 const SectionGridFeatureProperty: FC<SectionGridFeaturePropertyProps> = ({
-  stayListings = DEMO_DATA,
+  carListings = DEMO_DATA,
   gridClass = "",
-  heading = "Featured places to stay",
-  subHeading = "Popular places to stay that Chisfis recommends for you",
+  heading = "Featured cars for rent",
+  subHeading = "Popular rental cars that CG Rental recommends for you",
   headingIsCenter,
-  tabs = ["New York", "Tokyo", "Paris", "London"],
+  tabs = ["All", "SUV", "Sedan", "Sports"],
 }) => {
-  const renderCard = (stay: StayDataType, index: number) => {
-    return <PropertyCardH key={index} className="h-full" data={stay} />;
+  const renderCard = (car: CarDataType, index: number) => {
+    return <CarCardH key={index} className="h-full" data={car} />;
   };
 
   return (
     <div className="nc-SectionGridFeatureProperty relative">
       <HeaderFilter
-        tabActive={"New York"}
+        tabActive={"All"}
         subHeading={subHeading}
         tabs={tabs}
         heading={heading}
@@ -40,7 +40,7 @@ const SectionGridFeatureProperty: FC<SectionGridFeaturePropertyProps> = ({
       <div
         className={`grid gap-6 md:gap-8 grid-cols-1 sm:grid-cols-1 xl:grid-cols-2 ${gridClass}`}
       >
-        {stayListings.map(renderCard)}
+        {carListings.map(renderCard)}
       </div>
       <div className="flex mt-16 justify-center items-center">
         <ButtonPrimary loading>Show me more</ButtonPrimary>

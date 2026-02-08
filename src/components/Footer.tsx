@@ -5,6 +5,7 @@ import SocialsList1 from "@/shared/SocialsList1";
 import { CustomLink } from "@/data/types";
 import React from "react";
 import FooterNav from "./FooterNav";
+import { siteConfig } from "@/config/site";
 
 export interface WidgetFooterMenu {
   id: string;
@@ -14,47 +15,41 @@ export interface WidgetFooterMenu {
 
 const widgetMenus: WidgetFooterMenu[] = [
   {
-    id: "5",
-    title: "Getting started",
-    menus: [
-      { href: "#", label: "Installation" },
-      { href: "#", label: "Release Notes" },
-      { href: "#", label: "Upgrade Guide" },
-      { href: "#", label: "Browser Support" },
-      { href: "#", label: "Editor Support" },
-    ],
-  },
-  {
     id: "1",
-    title: "Explore",
+    title: "Rentals",
     menus: [
-      { href: "#", label: "Design features" },
-      { href: "#", label: "Prototyping" },
-      { href: "#", label: "Design systems" },
+      { href: "/listing-car", label: "Browse Cars" },
+      { href: "/listing-car-map", label: "Locations" },
       { href: "#", label: "Pricing" },
-      { href: "#", label: "Security" },
+      { href: "#", label: "FAQs" },
     ],
   },
   {
     id: "2",
-    title: "Resources",
+    title: "Company",
     menus: [
-      { href: "#", label: "Best practices" },
-      { href: "#", label: "Support" },
-      { href: "#", label: "Developers" },
-      { href: "#", label: "Learn design" },
-      { href: "#", label: "Releases" },
+      { href: "/about", label: "About Us" },
+      { href: "#", label: "Careers" },
+      { href: "/contact", label: "Contact" },
+      { href: "/blog", label: "Blog" },
+    ],
+  },
+  {
+    id: "3",
+    title: "Support",
+    menus: [
+      { href: "#", label: "Help Center" },
+      { href: "#", label: "Cancellation Policy" },
+      { href: "#", label: "Terms of Service" },
+      { href: "#", label: "Privacy Policy" },
     ],
   },
   {
     id: "4",
-    title: "Community",
+    title: "Contact",
     menus: [
-      { href: "#", label: "Discussion Forums" },
-      { href: "#", label: "Code of Conduct" },
-      { href: "#", label: "Community Resources" },
-      { href: "#", label: "Contributing" },
-      { href: "#", label: "Concurrent Mode" },
+      { href: `tel:${siteConfig.contact.phone}`, label: siteConfig.contact.phone },
+      { href: `mailto:${siteConfig.contact.email}`, label: siteConfig.contact.email },
     ],
   },
 ];

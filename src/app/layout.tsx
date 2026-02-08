@@ -14,6 +14,11 @@ const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+export const metadata = {
+  title: "CG Rental - Premium Car Rentals",
+  description: "Find your perfect rental car with CG Rental. Browse our premium selection of vehicles and drive away with confidence.",
+};
+
 export default function RootLayout({
   children,
   params,

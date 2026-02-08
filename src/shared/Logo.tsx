@@ -1,48 +1,40 @@
 import React from "react";
-import logoImg from "@/images/logo.png";
-import logoLightImg from "@/images/logo-light.png";
-import LogoSvgLight from "./LogoSvgLight";
-import LogoSvg from "./LogoSvg";
 import Link from "next/link";
-import { StaticImageData } from "next/image";
+import Image from "next/image";
+import { siteConfig } from "@/config/site";
 
 export interface LogoProps {
-  img?: StaticImageData;
-  imgLight?: StaticImageData;
   className?: string;
 }
 
-const Logo: React.FC<LogoProps> = ({
-  img = logoImg,
-  imgLight = logoLightImg,
-  className = "w-24",
-}) => {
+const Logo: React.FC<LogoProps> = ({ className = "w-24" }) => {
   return (
     <Link
       href="/"
       className={`ttnc-logo inline-block text-primary-6000 focus:outline-none focus:ring-0 ${className}`}
     >
-      <LogoSvgLight />
-      <LogoSvg />
-
-      {/* THIS USE FOR MY CLIENT */}
-      {/* PLEASE UN COMMENT BELLOW CODE AND USE IT */}
-      {/* {img ? (
-        <img
-          className={`block max-h-12 ${imgLight ? "dark:hidden" : ""}`}
-          src={img}
-          alt="Logo"
+      {/* Image-based logo - place your logo at /public/logo.svg and /public/logo-light.svg */}
+      <div className="flex items-center gap-2">
+        <Image
+          src="/logo.svg"
+          alt={siteConfig.name}
+          width={40}
+          height={40}
+          className="dark:hidden"
+          priority
         />
-      ) : (
-        "Logo Here"
-      )}
-      {imgLight && (
-        <img
-          className="hidden max-h-12 dark:block"
-          src={imgLight}
-          alt="Logo-Light"
+        <Image
+          src="/logo-light.svg"
+          alt={siteConfig.name}
+          width={40}
+          height={40}
+          className="hidden dark:block"
+          priority
         />
-      )} */}
+        <span className="font-bold text-xl text-neutral-900 dark:text-white">
+          {siteConfig.name}
+        </span>
+      </div>
     </Link>
   );
 };

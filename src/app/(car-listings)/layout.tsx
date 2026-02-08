@@ -16,12 +16,12 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <div className="container pt-10 pb-24 lg:pt-16 lg:pb-28">
         <SectionHeroArchivePage
           rightImage={heroRightImage}
-          currentPage="Cars"
-          currentTab="Cars"
+          title="Browse Our Fleet"
+          subtitle="Quality vehicles for every journey"
           listingType={
             <>
               <i className="text-2xl las la-car"></i>
-              <span className="ml-2.5">1512 cars</span>
+              <span className="ml-2.5">1512 cars available</span>
             </>
           }
         />
@@ -35,8 +35,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
         <div className="relative py-16">
           <BackgroundSection />
           <SectionSliderNewCategories
-            heading="Explore by types of stays"
-            subHeading="Explore houses based on 10 types of stays"
+            heading="Explore vehicle types"
+            subHeading="Find the perfect car for your needs"
             categoryCardType="card5"
             itemPerRow={5}
             sliderStyle="style2"
